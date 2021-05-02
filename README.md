@@ -8,11 +8,16 @@
 
 ![Screenshot4.png](./app/assets/images/Screenshot4.png)
 
+![Screenshot5.png](./app/assets/images/Screenshot5.png)
+
+![Screenshot6.png](./app/assets/images/Screenshot6.png)
+
 
 
 > This repo includes intial code for social media app with basic styling. Its purpose is to be a starting point for Microverse students.
 created friendship app as per the requirements mentioned below in screenshot.
 generated invitation model, added invitaion methods in Invitation.rb, changed view, added controller for invitation model, added controller for user. 
+added mutual friends method in user_helper
 
 
 ## Built With
