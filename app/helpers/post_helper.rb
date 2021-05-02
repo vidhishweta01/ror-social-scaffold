@@ -4,4 +4,10 @@ module PostHelper
 
     content_tag :p, "Post could not be saved. #{post.errors.full_messages.join('. ')}", class: 'errors'
   end
+
+  def unfriend_post(friend)
+    if current_user # rubocop:disable Style/GuardClause
+      link_to 'Unfriend', invitations_destroy_path(invitation_id: Invitation.find_invitation(current_user.id, friend.id))
+    end
+  end
 end
