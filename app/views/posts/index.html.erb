@@ -1,9 +1,38 @@
-<%= form_for(@post) do |form| %>
-  <%= form.label :content %>
-  <%= form.text_field :content, id: :post_content, class: 'form-control', placeholder: 'Add New Post' %>
-  <%= display_errors(@post) %>
-  <%= form.submit 'Save', class: 'btn btn-primary' %>
-<% end %>
+<section>
+<div class="float-left bg-light"><h1><%= " #{current_user.name}" %></h1>
+</div>
+  <div class="d-flex flex-column float-right bg-light">
+    <h4>Friends of <%= current_user.name %></h4>
+    <% current_user.friends.each do |friend| %>
+    <ul>
+    <li><div class="d-flex flex-row bg-light">
+      <div class="mx-1 mt-1"><%= friend.name %></div>
+      <div class="mx-1 p-2 border border-info"><%=unfriend(friend)%></div>
+    </div></li>
+    </ul>
+    <% end %>
+    <h4 class="bg-light">Pending invitation</h4>
+    <br>
+    <% current_user.pending_invitations.each do |invitation| %>
+    <div class="d-flex flex-row bg-light">
+      <div class="mx-1 mt-1"><%=pending_invitation(invitation)%></div>
+      <div class="mx-1 p-2 bg-info"><%=accept_invitation(invitation)%></div>
+      <div class="mx-1 p-2 border border-info"><%=reject_invitation(invitation)%></div>
+    </div>
+    <% end %>
+  </div>
+</div>
+</section>
+<section>
+  <div class="container-fluid" style="align-items: center; margin-left: 23vw;margin-top:5vh">
+    <%= form_for(@post) do |form| %>
+    <%= form.label :content %>
+    <%= form.text_field :content, id: :post_content, class: 'form-control', placeholder: 'Add New Post' %>
+    <%= display_errors(@post) %>
+    <%= form.submit 'Save', class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</section>
 
 <article class="timeline">
   <h3>
