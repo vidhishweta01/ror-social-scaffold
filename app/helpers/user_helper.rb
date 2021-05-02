@@ -27,12 +27,9 @@ module UserHelper
     count = 0
     unless current_user == friend
       friend.friends.each do |f|
-        if current_user.friends_with(f)
-          count += 1
-        end
+        count += 1 if current_user.friends_with(f)
       end
     end
     count
   end
-
 end
