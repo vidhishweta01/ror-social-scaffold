@@ -1,4 +1,10 @@
 module UserHelper
+  def send_invites(user)
+    if signed_in? && !Invitation.reacted?(current_user.id, user.id) && current_user != user # rubocop:disable Style/GuardClause
+      link_to 'Send Invitation', invitations_create_path(ids: { id1: current_user.id, id2: user.id })
+    end
+  end
+
   def send_invite
     if signed_in? && !Invitation.reacted?(current_user.id, @user.id) && current_user != @user # rubocop:disable Style/GuardClause
       link_to 'Send Invitation', invitations_create_path(ids: { id1: current_user.id, id2: @user.id })
