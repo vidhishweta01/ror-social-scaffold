@@ -7,7 +7,7 @@ module UserHelper
 
   def unfriend(friend)
     if @user == current_user # rubocop:disable Style/GuardClause
-      link_to 'Unfriend', invitations_destroy_path(invitation_id: Invitation.find_invitation(@user.id, friend.id)) # rubocop:disable Layout/LineLength
+      link_to 'Unfriend', invitations_destroy_path(invitation_id: Invitation.find_invitation(@user.id, friend.id))
     end
   end
 
