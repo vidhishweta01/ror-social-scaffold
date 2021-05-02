@@ -15,7 +15,25 @@
 
 
 > This repo includes intial code for social media app with basic styling. Its purpose is to be a starting point for Microverse students.
-created friendship app as per the requirements mentioned below in screenshot.
+created friendship app 
+As a guest user:
+1. able to create account/log in.
+2. can see only “Sign in” and “Sign out” page.
+
+As a logged-in user:
+
+1. able to see all users list.
+2. able to see selected user page with their user name and all posts written by them (the most recent posts on the top).
+3. able to send a friendship invitation.
+4. can see a button “Invite to friendship” next to the name of user who is not my friend yet - on both users’ list and single user page.
+5. able to see pending friendship invitations sent to me from other users.
+6. able to accept or reject friendships invitation.
+7. able to create new posts (text only).
+8. able to like/dislike posts (but I can like single post only once).
+9. able to add comments to posts.
+10. able to see “Timeline” page with posts (with number of likes and comments) written by me and all my friends (the most recent posts on the top).
+11. Timeline page should be the root page of the app.
+
 generated invitation model, added invitaion methods in Invitation.rb, changed view, added controller for invitation model, added controller for user. 
 added mutual friends method in user_helper
 
