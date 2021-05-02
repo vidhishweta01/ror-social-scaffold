@@ -22,4 +22,17 @@ module UserHelper
   def reject_invitation(invitation)
     link_to 'Reject', invitations_destroy_path(invitation_id: invitation.id)
   end
+
+  def mutual_friend(friend)
+    count = 0
+    unless current_user == friend
+      friend.friends.each do |f|
+        if current_user.friends_with(f)
+          count += 1
+        end
+      end
+    end
+    count
+  end
+
 end
