@@ -28,4 +28,8 @@ module UserHelper
   def reject_invitation(invitation)
     link_to 'Reject', invitations_destroy_path(invitation_id: invitation.id)
   end
+
+  def not_any_one_friends
+    Post.all if current_user.friends.length.zero?
+  end
 end
