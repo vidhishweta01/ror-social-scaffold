@@ -21689,3 +21689,45 @@ Processing by UsersController#show as HTML
 Completed 200 OK in 100ms (Views: 70.4ms | ActiveRecord: 12.3ms | Allocations: 21435)
 
 
+Started GET "/users/2" for ::1 at 2021-05-09 10:47:30 +0530
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (5.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mInvitation Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "invitations" WHERE "invitations"."user_id" = $1 AND "invitations"."friend_id" = $2 LIMIT $3[0m  [["user_id", 4], ["friend_id", 2], ["LIMIT", 1]]
+  ↳ app/models/invitation.rb:6:in `reacted?'
+  [1m[36mInvitation Exists? (4.7ms)[0m  [1m[34mSELECT 1 AS one FROM "invitations" WHERE "invitations"."user_id" = $1 AND "invitations"."friend_id" = $2 LIMIT $3[0m  [["user_id", 2], ["friend_id", 4], ["LIMIT", 1]]
+  ↳ app/models/invitation.rb:7:in `reacted?'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "invitations"."friend_id" FROM "invitations" WHERE "invitations"."user_id" = $1 AND "invitations"."confirmed" = $2[0m  [["user_id", 2], ["confirmed", true]]
+  ↳ app/models/user.rb:16:in `friends'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "invitations"."user_id" FROM "invitations" WHERE "invitations"."friend_id" = $1 AND "invitations"."confirmed" = $2[0m  [["friend_id", 2], ["confirmed", true]]
+  ↳ app/models/user.rb:17:in `friends'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2)[0m  [[nil, 4], [nil, 1]]
+  ↳ app/views/users/show.html.erb:6
+  [1m[36mInvitation Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "invitations" WHERE "invitations"."user_id" = $1 AND "invitations"."friend_id" = $2 AND "invitations"."confirmed" = $3 LIMIT $4[0m  [["user_id", 4], ["friend_id", 2], ["confirmed", true], ["LIMIT", 1]]
+  ↳ app/models/invitation.rb:12:in `confirmed_record?'
+  [1m[36mInvitation Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "invitations" WHERE "invitations"."user_id" = $1 AND "invitations"."friend_id" = $2 AND "invitations"."confirmed" = $3 LIMIT $4[0m  [["user_id", 2], ["friend_id", 4], ["confirmed", true], ["LIMIT", 1]]
+  ↳ app/models/invitation.rb:13:in `confirmed_record?'
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1 ORDER BY "posts"."created_at" DESC[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:23
+  [1m[36mCACHE Invitation Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "invitations" WHERE "invitations"."user_id" = $1 AND "invitations"."friend_id" = $2 AND "invitations"."confirmed" = $3 LIMIT $4[0m  [["user_id", 4], ["friend_id", 2], ["confirmed", true], ["LIMIT", 1]]
+  ↳ app/models/invitation.rb:12:in `confirmed_record?'
+  [1m[36mCACHE Invitation Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "invitations" WHERE "invitations"."user_id" = $1 AND "invitations"."friend_id" = $2 AND "invitations"."confirmed" = $3 LIMIT $4[0m  [["user_id", 2], ["friend_id", 4], ["confirmed", true], ["LIMIT", 1]]
+  ↳ app/models/invitation.rb:13:in `confirmed_record?'
+  [1m[36mLike Load (0.4ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1 AND "likes"."user_id" = $2 LIMIT $3[0m  [["post_id", 2], ["user_id", 4], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:11:in `like_or_dislike_btn'
+  [1m[36mComment Load (1.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/posts/_post.html.erb:17
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.erb:3
+  Rendered collection of comments/_comment.html.erb [1 times] (Duration: 14.0ms | Allocations: 1975)
+  Rendered collection of posts/_post.html.erb [1 times] (Duration: 96.3ms | Allocations: 15345)
+  Rendered users/show.html.erb within layouts/application (Duration: 231.2ms | Allocations: 26089)
+  Rendered layout layouts/application.html.erb (Duration: 479.8ms | Allocations: 316874)
+Completed 200 OK in 661ms (Views: 462.0ms | ActiveRecord: 46.2ms | Allocations: 334641)
+
+
