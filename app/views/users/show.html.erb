@@ -21,12 +21,14 @@
   </div>
 </div>
 </section>
+<%if current_user == @user|| current_user.friends_with(@user)%>
   <article class="timeline">
     <h3>Recent posts:</h3>
     <div class="posts">
       <%= render @posts %>
     </div>
   </article>
+  <%end%>
   <br>
   <div class="float-right">
   <%if current_user == @user%>

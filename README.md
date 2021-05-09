@@ -37,11 +37,10 @@ As a logged-in user:
 generated invitation model, added invitaion methods in Invitation.rb, changed view, added controller for invitation model, added controller for user. 
 added mutual friends method in user_helper
 
-
 ## Built With
 
-- Ruby v2.7.0
-- Ruby on Rails v5.2.4
+- Ruby v2.7.1
+- Ruby on Rails v6.1.3
 
 ## Live Demo
 
