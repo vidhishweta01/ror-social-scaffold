@@ -1,11 +1,23 @@
 # Scaffold for social media app with Ruby on Rails
 
+![Screenshot1.png](./app/assets/images/Screenshot1.png)
+
+![Screenshot3.png](./app/assets/images/Screenshot3.png)
+
+![Screenshot2.png](./app/assets/images/Screenshot2.png)
+
+![Screenshot4.png](./app/assets/images/Screenshot4.png)
+
+
+
 > This repo includes intial code for social media app with basic styling. Its purpose is to be a starting point for Microverse students.
+created friendship app as per the requirements mentioned below in screenshot.
+generated invitation model, added invitaion methods in Invitation.rb, changed view, added controller for invitation model, added controller for user. 
 
 ## Built With
 
-- Ruby v2.7.0
-- Ruby on Rails v5.2.4
+- Ruby v2.7.1
+- Ruby on Rails v6.1.3
 
 ## Live Demo
 
