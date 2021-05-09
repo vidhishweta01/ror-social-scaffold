@@ -29,7 +29,7 @@ module UserHelper
     link_to 'Reject', invitations_destroy_path(invitation_id: invitation.id)
   end
 
-  def not_any_one_friends
-    Post.all if current_user.friends.length.zero?
+  def post_created
+    Post.all.ordered_by_most_recent.includes(:user)
   end
 end
