@@ -44,7 +44,7 @@ added mutual friends method in user_helper
 
 ## Live Demo
 
-TBA
+https://calm-fortress-48296.herokuapp.com/
 
 
 ## Getting Started
