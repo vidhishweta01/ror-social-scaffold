@@ -6,7 +6,12 @@
     <% @user.friends.each do |friend| %>
     <ul>
     <li><div class="d-flex flex-row p-2">
-      <div class="mx-1 mt-1"><%= friend.name %></div>
+      <div class="mx-1 mt-1"><%= friend.name %>
+     <p> <%unless mutual_friend(friend) == 0%>
+         <%= mutual_friend(friend)%> mutual friends</p>
+         <%end%>
+      </div>
+      
       <% if current_user == @user %>
       <div class="mx-1 p-2 border border-info"><%=unfriend(friend)%></div>
       <%end%>

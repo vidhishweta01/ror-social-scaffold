@@ -32,4 +32,14 @@ module UserHelper
   def post_created
     Post.all.ordered_by_most_recent.includes(:user)
   end
+
+  def mutual_friend(friend)
+    count = 0
+    unless current_user == friend
+      friend.friends.each do |f|
+        count += 1 if current_user.friends_with(f)
+      end
+    end
+    count
+  end
 end
